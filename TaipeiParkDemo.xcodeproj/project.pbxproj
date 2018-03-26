@@ -8,20 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		7CB8337520691705006B5B9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB8337420691705006B5B9E /* AppDelegate.swift */; };
-		7CB8337720691705006B5B9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB8337620691705006B5B9E /* ViewController.swift */; };
 		7CB8337A20691705006B5B9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB8337820691705006B5B9E /* Main.storyboard */; };
 		7CB8337C20691705006B5B9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB8337B20691705006B5B9E /* Assets.xcassets */; };
 		7CB8337F20691705006B5B9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB8337D20691705006B5B9E /* LaunchScreen.storyboard */; };
+		7CB8338A206921A3006B5B9E /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB83389206921A3006B5B9E /* Constant.swift */; };
+		7CB8338D20692230006B5B9E /* ParkListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB8338C20692230006B5B9E /* ParkListViewModel.swift */; };
+		7CB8338F20692257006B5B9E /* ParkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB8338E20692257006B5B9E /* ParkListViewController.swift */; };
+		7CB833912069226B006B5B9E /* ParkDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB833902069226B006B5B9E /* ParkDetailViewModel.swift */; };
+		7CB83393206922E0006B5B9E /* ParkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB83392206922E0006B5B9E /* ParkDetailViewController.swift */; };
+		7CB8339520692BBC006B5B9E /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB8339420692BBC006B5B9E /* Park.swift */; };
+		7CB8339720692C9F006B5B9E /* ParkAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB8339620692C9F006B5B9E /* ParkAPIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7CB8337120691705006B5B9E /* TaipeiParkDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaipeiParkDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB8337420691705006B5B9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7CB8337620691705006B5B9E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7CB8337920691705006B5B9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7CB8337B20691705006B5B9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CB8337E20691705006B5B9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CB8338020691705006B5B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CB83389206921A3006B5B9E /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		7CB8338C20692230006B5B9E /* ParkListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkListViewModel.swift; sourceTree = "<group>"; };
+		7CB8338E20692257006B5B9E /* ParkListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkListViewController.swift; sourceTree = "<group>"; };
+		7CB833902069226B006B5B9E /* ParkDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkDetailViewModel.swift; sourceTree = "<group>"; };
+		7CB83392206922E0006B5B9E /* ParkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkDetailViewController.swift; sourceTree = "<group>"; };
+		7CB8339420692BBC006B5B9E /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
+		7CB8339620692C9F006B5B9E /* ParkAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkAPIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +66,52 @@
 		7CB8337320691705006B5B9E /* TaipeiParkDemo */ = {
 			isa = PBXGroup;
 			children = (
+				7CB8338720691E6C006B5B9E /* Model */,
+				7CB8338620691E3D006B5B9E /* Feature */,
 				7CB8337420691705006B5B9E /* AppDelegate.swift */,
-				7CB8337620691705006B5B9E /* ViewController.swift */,
 				7CB8337820691705006B5B9E /* Main.storyboard */,
+				7CB83389206921A3006B5B9E /* Constant.swift */,
 				7CB8337B20691705006B5B9E /* Assets.xcassets */,
 				7CB8337D20691705006B5B9E /* LaunchScreen.storyboard */,
 				7CB8338020691705006B5B9E /* Info.plist */,
 			);
 			path = TaipeiParkDemo;
+			sourceTree = "<group>";
+		};
+		7CB8338620691E3D006B5B9E /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				7CB8338820691E78006B5B9E /* ParkList */,
+				7CB8338B206921CE006B5B9E /* ParkDetail */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		7CB8338720691E6C006B5B9E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7CB8339420692BBC006B5B9E /* Park.swift */,
+				7CB8339620692C9F006B5B9E /* ParkAPIService.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7CB8338820691E78006B5B9E /* ParkList */ = {
+			isa = PBXGroup;
+			children = (
+				7CB8338C20692230006B5B9E /* ParkListViewModel.swift */,
+				7CB8338E20692257006B5B9E /* ParkListViewController.swift */,
+			);
+			path = ParkList;
+			sourceTree = "<group>";
+		};
+		7CB8338B206921CE006B5B9E /* ParkDetail */ = {
+			isa = PBXGroup;
+			children = (
+				7CB833902069226B006B5B9E /* ParkDetailViewModel.swift */,
+				7CB83392206922E0006B5B9E /* ParkDetailViewController.swift */,
+			);
+			path = ParkDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +186,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CB8337720691705006B5B9E /* ViewController.swift in Sources */,
+				7CB8339720692C9F006B5B9E /* ParkAPIService.swift in Sources */,
+				7CB833912069226B006B5B9E /* ParkDetailViewModel.swift in Sources */,
+				7CB8339520692BBC006B5B9E /* Park.swift in Sources */,
+				7CB83393206922E0006B5B9E /* ParkDetailViewController.swift in Sources */,
+				7CB8338F20692257006B5B9E /* ParkListViewController.swift in Sources */,
+				7CB8338D20692230006B5B9E /* ParkListViewModel.swift in Sources */,
 				7CB8337520691705006B5B9E /* AppDelegate.swift in Sources */,
+				7CB8338A206921A3006B5B9E /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
