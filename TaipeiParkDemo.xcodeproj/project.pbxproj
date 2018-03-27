@@ -18,6 +18,7 @@
 		7CB83393206922E0006B5B9E /* ParkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB83392206922E0006B5B9E /* ParkDetailViewController.swift */; };
 		7CB8339520692BBC006B5B9E /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB8339420692BBC006B5B9E /* Park.swift */; };
 		7CB8339720692C9F006B5B9E /* ParkAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB8339620692C9F006B5B9E /* ParkAPIService.swift */; };
+		7CB83399206A030F006B5B9E /* ParkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB83398206A030F006B5B9E /* ParkViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		7CB83392206922E0006B5B9E /* ParkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkDetailViewController.swift; sourceTree = "<group>"; };
 		7CB8339420692BBC006B5B9E /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
 		7CB8339620692C9F006B5B9E /* ParkAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkAPIService.swift; sourceTree = "<group>"; };
+		7CB83398206A030F006B5B9E /* ParkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				7CB8338C20692230006B5B9E /* ParkListViewModel.swift */,
+				7CB83398206A030F006B5B9E /* ParkViewModel.swift */,
 				7CB8338E20692257006B5B9E /* ParkListViewController.swift */,
 			);
 			path = ParkList;
@@ -186,6 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CB83399206A030F006B5B9E /* ParkViewModel.swift in Sources */,
 				7CB8339720692C9F006B5B9E /* ParkAPIService.swift in Sources */,
 				7CB833912069226B006B5B9E /* ParkDetailViewModel.swift in Sources */,
 				7CB8339520692BBC006B5B9E /* Park.swift in Sources */,

@@ -32,7 +32,9 @@ class ParkAPIService {
         
         let task = URLSession.shared.dataTask(with: request) { (data, _, error) in
             guard error == nil else {
-                self.delegate?.didFailFetchParks(error: error!)
+                DispatchQueue.main.async {
+                    self.delegate?.didFailFetchParks(error: error!)
+                }
                 return
             }
             
@@ -51,9 +53,13 @@ class ParkAPIService {
                                         introduction: parkInfo["Introduction"]!)
                         parks.append(park)
                     }
-                    self.delegate?.didSuccessFetchParks(parks)
+                    DispatchQueue.main.async {
+                        self.delegate?.didSuccessFetchParks(parks)
+                    }
                 } catch {
-                    self.delegate?.didFailFetchParks(error: error)
+                    DispatchQueue.main.async {
+                        self.delegate?.didFailFetchParks(error: error)
+                    }
                 }
             }
         }
