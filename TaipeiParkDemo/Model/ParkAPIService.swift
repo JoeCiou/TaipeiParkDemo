@@ -10,7 +10,7 @@ import Foundation
 
 @objc protocol ParkAPIServiceDelegate {
     
-    func didSuccessFetchParks(_ parks: [Park])
+    func didSuccessFetchParks(_ parks: [String: [Park]])
     func didFailFetchParks(error: Error)
     
 }
@@ -44,14 +44,15 @@ class ParkAPIService {
                     let result = json["result"] as! [String: Any]
                     let results = result["results"] as! [[String: String]]
                     
-                    var parks: [Park] = []
+                    var parks: [String: [Park]] = [: ]
                     for parkInfo in results {
-                        let park = Park(parkName: parkInfo["ParkName"]!,
+                        let parkName = parkInfo["ParkName"]!
+                        let park = Park(parkName: parkName,
                                         name: parkInfo["Name"]!,
                                         openTime: parkInfo["OpenTime"]!,
                                         imageURLString: parkInfo["Image"]!,
                                         introduction: parkInfo["Introduction"]!)
-                        parks.append(park)
+                        parks[parkName] = (parks[parkName] ?? []) + [park]
                     }
                     DispatchQueue.main.async {
                         self.delegate?.didSuccessFetchParks(parks)

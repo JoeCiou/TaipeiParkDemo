@@ -69,18 +69,23 @@ class ParkListViewController: UITableViewController, ParkListViewModelDelegate {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return viewModel.parksName.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.parks.count
+        let parkName = viewModel.parksName[section]
+        return viewModel.parksNumber(parkName: parkName)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ParkCell", for: indexPath) as! ParkCell
-        cell.viewModel = viewModel.parkViewModel(index: indexPath.row)
+        cell.viewModel = viewModel.parkViewModel(indexPath: indexPath)
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.parksName[section]
     }
 
 }
