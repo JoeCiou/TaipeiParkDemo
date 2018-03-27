@@ -48,8 +48,6 @@ class ParkListViewModel: ParkAPIServiceDelegate {
     
     func didSuccessFetchParks(_ parks: [String: [Park]]) {
         self.parks = parks
-        print(parks.keys.count)
-        print(parks.values.count)
         delegate?.didSuccessUpdateParks()
     }
     

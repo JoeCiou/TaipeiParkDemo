@@ -27,6 +27,12 @@ class ParkCell: UITableViewCell, ParkViewModelDelegate {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var introductionTextView: UITextView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        introductionTextView.textContainerInset = UIEdgeInsets.zero
+        introductionTextView.textContainer.lineFragmentPadding = 0
+    }
+    
     // MARK: - Park view model delegate
     
     func didFetchPhoto(image: UIImage?) {
@@ -34,12 +40,16 @@ class ParkCell: UITableViewCell, ParkViewModelDelegate {
     }
 }
 
-class ParkListViewController: UITableViewController, ParkListViewModelDelegate {
+class ParkListViewController: UIViewController, ParkListViewModelDelegate, UITableViewDelegate, UITableViewDataSource {
 
     let viewModel: ParkListViewModel = ParkListViewModel()
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
         
         viewModel.delegate = self
         viewModel.updateParks()
@@ -62,30 +72,65 @@ class ParkListViewController: UITableViewController, ParkListViewModelDelegate {
 
     // MARK: - Table view delegate
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
     
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.parksName.count
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let parkName = viewModel.parksName[section]
         return viewModel.parksNumber(parkName: parkName)
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ParkCell", for: indexPath) as! ParkCell
         cell.viewModel = viewModel.parkViewModel(indexPath: indexPath)
 
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel.parksName[section]
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = view.backgroundColor
+        
+        let contentView = UIView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.backgroundColor = UIColor.white
+        contentView.layer.cornerRadius = 8
+        contentView.layer.shadowRadius = 3
+        contentView.layer.shadowOpacity = 0.5
+        contentView.layer.shadowOffset = CGSize(width: 1, height: 1)
+        
+        let titleLabel = UILabel()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.text = viewModel.parksName[section]
+        titleLabel.textAlignment = .center
+        titleLabel.textColor = UIColor.darkGray
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        
+        contentView.addSubview(titleLabel)
+        headerView.addSubview(contentView)
+        
+        contentView.leftAnchor.constraint(equalTo: headerView.leftAnchor, constant: 16).isActive = true
+        contentView.rightAnchor.constraint(equalTo: headerView.rightAnchor, constant: -16).isActive = true
+        contentView.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 8).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -8).isActive = true
+        
+        titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8).isActive = true
+        titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -8).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        
+        return headerView
     }
 
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 46
+    }
+    
 }
