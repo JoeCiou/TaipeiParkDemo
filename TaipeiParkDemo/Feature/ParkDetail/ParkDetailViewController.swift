@@ -8,8 +8,20 @@
 
 import UIKit
 
+class RelatedPlaceCell: UICollectionViewCell {
+    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+}
+
 class ParkDetailViewController: UIViewController {
 
+    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var parkNameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var openTimeLabel: UILabel!
+    @IBOutlet weak var introductionTextView: UITextView!
+    @IBOutlet weak var relatedPlacesCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

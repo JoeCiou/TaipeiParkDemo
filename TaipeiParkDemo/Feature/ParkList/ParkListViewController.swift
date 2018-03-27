@@ -8,6 +8,13 @@
 
 import UIKit
 
+class ParkCell: UITableViewCell {
+    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var parkNameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var introductionTextView: UITextView!
+}
+
 class ParkListViewController: UITableViewController {
 
     override func viewDidLoad() {
