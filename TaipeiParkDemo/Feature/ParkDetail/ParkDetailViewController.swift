@@ -17,6 +17,8 @@ class RelatedPlaceCell: UICollectionViewCell, RelatedPlaceViewModelDelegate {
             }
             if let viewModel = viewModel {
                 viewModel.delegate = self
+                photoImageView.contentMode = .center
+                photoImageView.image = UIImage(named: "ic_park_default")
                 viewModel.fetchPhoto()
                 nameLabel.text = viewModel.name
             }
@@ -29,6 +31,7 @@ class RelatedPlaceCell: UICollectionViewCell, RelatedPlaceViewModelDelegate {
     // MARK: - Related place view model delegate
     
     func didFetchPhoto(image: UIImage?) {
+        photoImageView.contentMode = .scaleAspectFill
         photoImageView.image = image
     }
 }

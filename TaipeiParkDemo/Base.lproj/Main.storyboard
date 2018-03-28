@@ -234,6 +234,9 @@
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="Mtp-Yo-52l" secondAttribute="height" multiplier="1:0.8" id="HxN-yZ-Mfm"/>
                                                                             </constraints>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                                            </userDefinedRuntimeAttributes>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSn-9j-mG8">
                                                                             <rect key="frame" x="2" y="86" width="96" height="16"/>

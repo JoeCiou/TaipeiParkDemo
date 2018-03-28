@@ -19,6 +19,8 @@ class ParkCell: UITableViewCell, ParkViewModelDelegate {
             }
             if let viewModel = viewModel {
                 viewModel.delegate = self
+                photoImageView.contentMode = .center
+                photoImageView.image = UIImage(named: "ic_park_default")
                 viewModel.fetchPhoto()
                 parkNameLabel.text = viewModel.parkName
                 nameLabel.text = viewModel.name
@@ -51,6 +53,7 @@ class ParkCell: UITableViewCell, ParkViewModelDelegate {
     // MARK: - Park view model delegate
     
     func didFetchPhoto(image: UIImage?) {
+        photoImageView.contentMode = .scaleAspectFill
         photoImageView.image = image
     }
 }
