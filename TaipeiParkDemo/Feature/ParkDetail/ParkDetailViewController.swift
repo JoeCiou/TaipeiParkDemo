@@ -59,6 +59,11 @@ class ParkDetailViewController: UIViewController, ParkViewModelDelegate, UIColle
         
         updateInfomation()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        startCollectionDisplayAnimation()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -73,6 +78,21 @@ class ParkDetailViewController: UIViewController, ParkViewModelDelegate, UIColle
         introductionTextView.text = viewModel.introduction
         relatedPlacesCollectionView.reloadData()
         relatedPlacesCollectionView.setContentOffset(CGPoint.zero, animated: false)
+    }
+    
+    func startCollectionDisplayAnimation() {
+        relatedPlacesCollectionView.alpha = 0
+        
+        if viewModel.relatedPlacesNumber == 0 {
+            relatedPlacesCollectionView.alpha = 1
+        } else {
+            let originalTransform = relatedPlacesCollectionView.transform
+            relatedPlacesCollectionView.transform = originalTransform.translatedBy(x: 50, y: 0)
+            UIView.animate(withDuration: 0.5) {
+                self.relatedPlacesCollectionView.transform = originalTransform
+                self.relatedPlacesCollectionView.alpha = 1
+            }
+        }
     }
     
     @IBAction func handleBackClick(_ sender: Any) {
@@ -90,6 +110,7 @@ class ParkDetailViewController: UIViewController, ParkViewModelDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         viewModel = viewModel.parkDetailViewModel(relatedPlacesIndex: indexPath.item)
         updateInfomation()
+        startCollectionDisplayAnimation()
     }
     
     // MARK: - Collection view data source

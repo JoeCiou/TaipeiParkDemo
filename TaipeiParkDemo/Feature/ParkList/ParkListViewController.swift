@@ -71,6 +71,7 @@ class ParkListViewController: UIViewController, ParkListViewModelDelegate, UITab
         
         viewModel.delegate = self
         viewModel.updateParks()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,6 +90,12 @@ class ParkListViewController: UIViewController, ParkListViewModelDelegate, UITab
     
     func didSuccessUpdateParks() {
         tableView.reloadData()
+        if tableView.isHidden {
+            tableView.isHidden = false
+            UIView.animate(withDuration: 0.3, animations: {
+                self.tableView.alpha = 1
+            })
+        }
     }
     
     func didFailUpdateParks(error: Error) {
@@ -125,7 +132,7 @@ class ParkListViewController: UIViewController, ParkListViewModelDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ParkCell", for: indexPath) as! ParkCell
         cell.viewModel = viewModel.parkViewModel(indexPath: indexPath)
-
+        
         return cell
     }
     
