@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C6E192F206B8A0D004AC40F /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E192E206B8A0D004AC40F /* Extension.swift */; };
 		7CB8337520691705006B5B9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB8337420691705006B5B9E /* AppDelegate.swift */; };
 		7CB8337A20691705006B5B9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB8337820691705006B5B9E /* Main.storyboard */; };
 		7CB8337C20691705006B5B9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB8337B20691705006B5B9E /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		13FECB1E9E2B4CF9E6FE60B1 /* Pods-TaipeiParkDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiParkDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiParkDemo/Pods-TaipeiParkDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		66FA9EE1ABA20DBF8D2F9008 /* Pods-TaipeiParkDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiParkDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiParkDemo/Pods-TaipeiParkDemo.release.xcconfig"; sourceTree = "<group>"; };
+		7C6E192E206B8A0D004AC40F /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		7CB8337120691705006B5B9E /* TaipeiParkDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaipeiParkDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB8337420691705006B5B9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CB8337920691705006B5B9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				7CB8337420691705006B5B9E /* AppDelegate.swift */,
 				7CB8337820691705006B5B9E /* Main.storyboard */,
 				7CB83389206921A3006B5B9E /* Constant.swift */,
+				7C6E192E206B8A0D004AC40F /* Extension.swift */,
 				7CB8337B20691705006B5B9E /* Assets.xcassets */,
 				7CB8337D20691705006B5B9E /* LaunchScreen.storyboard */,
 				7CB8338020691705006B5B9E /* Info.plist */,
@@ -277,6 +280,7 @@
 				7CB8339720692C9F006B5B9E /* ParkAPIService.swift in Sources */,
 				7CB833912069226B006B5B9E /* ParkDetailViewModel.swift in Sources */,
 				7CB8339520692BBC006B5B9E /* Park.swift in Sources */,
+				7C6E192F206B8A0D004AC40F /* Extension.swift in Sources */,
 				7CB83393206922E0006B5B9E /* ParkDetailViewController.swift in Sources */,
 				7CB8338F20692257006B5B9E /* ParkListViewController.swift in Sources */,
 				7CB8339F206B3C95006B5B9E /* RelatedPlaceViewModel.swift in Sources */,

@@ -113,21 +113,3 @@ class ParkDetailViewController: UIViewController, ParkViewModelDelegate, UIColle
     }
     
 }
-
-extension UICollectionView {
-    
-    func setEmptyMessage(_ message: String) {
-        let messageLabel = UILabel()
-        messageLabel.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleBottomMargin]
-        messageLabel.text = message
-        messageLabel.textColor = UIColor.darkGray
-        messageLabel.textAlignment = .center;
-        messageLabel.font = UIFont.systemFont(ofSize: 15)
-        
-        self.backgroundView = messageLabel;
-    }
-    
-    func restore() {
-        self.backgroundView = nil
-    }
-}
