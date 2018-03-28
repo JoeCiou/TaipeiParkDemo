@@ -10,11 +10,16 @@ import UIKit
 
 class RelatedPlaceCell: UICollectionViewCell, RelatedPlaceViewModelDelegate {
     
-    var viewModel: RelatedPlaceViewModel! {
+    var viewModel: RelatedPlaceViewModel? {
         didSet {
-            viewModel.delegate = self
-            viewModel.fetchPhoto()
-            nameLabel.text = viewModel.name
+            if let oldViewModel = oldValue {
+                oldViewModel.delegate = nil
+            }
+            if let viewModel = viewModel {
+                viewModel.delegate = self
+                viewModel.fetchPhoto()
+                nameLabel.text = viewModel.name
+            }
         }
     }
     

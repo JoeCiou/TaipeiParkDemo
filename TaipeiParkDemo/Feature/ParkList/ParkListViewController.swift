@@ -13,7 +13,10 @@ class ParkCell: UITableViewCell, ParkViewModelDelegate {
     
     var viewModel: ParkViewModel? {
         didSet {
-            if let viewModel = viewModel{
+            if let oldViewModel = oldValue {
+                oldViewModel.delegate = nil
+            }
+            if let viewModel = viewModel {
                 viewModel.delegate = self
                 viewModel.fetchPhoto()
                 parkNameLabel.text = viewModel.parkName
