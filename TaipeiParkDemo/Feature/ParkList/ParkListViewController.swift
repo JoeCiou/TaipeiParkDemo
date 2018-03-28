@@ -15,6 +15,7 @@ class ParkCell: UITableViewCell, ParkViewModelDelegate {
         didSet {
             if let oldViewModel = oldValue {
                 oldViewModel.delegate = nil
+                oldViewModel.cancelFetchPhoto()
             }
             if let viewModel = viewModel {
                 viewModel.delegate = self

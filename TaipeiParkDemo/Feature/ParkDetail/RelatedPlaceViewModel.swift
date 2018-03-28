@@ -14,8 +14,9 @@ import UIKit
 
 class RelatedPlaceViewModel {
     
-    weak var park: Park!
+    private(set) weak var park: Park!
     weak var delegate: RelatedPlaceViewModelDelegate?
+    private var fetchTask: URLSessionTask?
     
     var name: String {
         return park.name
@@ -27,9 +28,9 @@ class RelatedPlaceViewModel {
     
     func fetchPhoto() {
         if let url = URL(string: park!.imageURLString) {
-            let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) in
+            fetchTask = URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) in
+                self.fetchTask = nil
                 guard error == nil else {
-                    print(error!.localizedDescription)
                     return
                 }
                 
@@ -40,7 +41,13 @@ class RelatedPlaceViewModel {
                     }
                 }
             })
-            task.resume()
+            fetchTask?.resume()
+        }
+    }
+    
+    func cancelFetchPhoto() {
+        if let task = fetchTask, task.state == .running {
+            task.cancel()
         }
     }
     

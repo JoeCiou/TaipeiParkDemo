@@ -16,6 +16,7 @@ class ParkViewModel {
     
     private(set) weak var park: Park!
     weak var delegate: ParkViewModelDelegate?
+    private var fetchTask: URLSessionTask?
     
     var parkName: String {
         return park.parkName
@@ -33,9 +34,9 @@ class ParkViewModel {
     
     func fetchPhoto() {
         if let url = URL(string: park!.imageURLString) {
-            let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) in
+            fetchTask = URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) in
+                self.fetchTask = nil
                 guard error == nil else {
-                    print(error!.localizedDescription)
                     return
                 }
                 
@@ -46,7 +47,13 @@ class ParkViewModel {
                     }
                 }
             })
-            task.resume()
+            fetchTask?.resume()
+        }
+    }
+    
+    func cancelFetchPhoto() {
+        if let task = fetchTask, task.state == .running {
+            task.cancel()
         }
     }
     

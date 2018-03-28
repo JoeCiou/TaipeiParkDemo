@@ -34,7 +34,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXx-S4-MyS">
                                                     <rect key="frame" x="16" y="8" width="343" height="164"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oya-nt-IaF">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oya-nt-IaF">
                                                             <rect key="frame" x="16" y="16" width="120" height="96"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="Oya-nt-IaF" secondAttribute="height" multiplier="1:0.8" id="ZPl-3d-uCl"/>
