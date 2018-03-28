@@ -44,6 +44,13 @@ class ParkListViewModel: ParkAPIServiceDelegate {
         return ParkViewModel(park: park)
     }
     
+    func parkDetailViewModel(indexPath: IndexPath) -> ParkDetailViewModel {
+        let parkName = parksName[indexPath.section]
+        let park = parks[parkName]![indexPath.row]
+        let relatedPlaces = parks[parkName]!.filter({ $0 != park })
+        return ParkDetailViewModel(park: park, relatedPlaces: relatedPlaces)
+    }
+    
     // MARK: - Park API service delegate
     
     func didSuccessFetchParks(_ parks: [String: [Park]]) {

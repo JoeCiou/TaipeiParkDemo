@@ -19,6 +19,7 @@
 		7CB8339520692BBC006B5B9E /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB8339420692BBC006B5B9E /* Park.swift */; };
 		7CB8339720692C9F006B5B9E /* ParkAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB8339620692C9F006B5B9E /* ParkAPIService.swift */; };
 		7CB83399206A030F006B5B9E /* ParkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB83398206A030F006B5B9E /* ParkViewModel.swift */; };
+		7CB8339F206B3C95006B5B9E /* RelatedPlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB8339E206B3C95006B5B9E /* RelatedPlaceViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		7CB8339420692BBC006B5B9E /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
 		7CB8339620692C9F006B5B9E /* ParkAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkAPIService.swift; sourceTree = "<group>"; };
 		7CB83398206A030F006B5B9E /* ParkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkViewModel.swift; sourceTree = "<group>"; };
+		7CB8339E206B3C95006B5B9E /* RelatedPlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedPlaceViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				7CB833902069226B006B5B9E /* ParkDetailViewModel.swift */,
+				7CB8339E206B3C95006B5B9E /* RelatedPlaceViewModel.swift */,
 				7CB83392206922E0006B5B9E /* ParkDetailViewController.swift */,
 			);
 			path = ParkDetail;
@@ -195,6 +198,7 @@
 				7CB8339520692BBC006B5B9E /* Park.swift in Sources */,
 				7CB83393206922E0006B5B9E /* ParkDetailViewController.swift in Sources */,
 				7CB8338F20692257006B5B9E /* ParkListViewController.swift in Sources */,
+				7CB8339F206B3C95006B5B9E /* RelatedPlaceViewModel.swift in Sources */,
 				7CB8338D20692230006B5B9E /* ParkListViewModel.swift in Sources */,
 				7CB8337520691705006B5B9E /* AppDelegate.swift in Sources */,
 				7CB8338A206921A3006B5B9E /* Constant.swift in Sources */,

@@ -1,30 +1,24 @@
 //
-//  ParkViewModel.swift
+//  RelatedPlaceViewModel.swift
 //  TaipeiParkDemo
 //
-//  Created by Joe on 2018/3/27.
+//  Created by Joe on 2018/3/28.
 //  Copyright © 2018年 joe. All rights reserved.
 //
 
 import UIKit
 
-@objc protocol ParkViewModelDelegate {
+@objc protocol RelatedPlaceViewModelDelegate {
     func didFetchPhoto(image: UIImage?)
 }
 
-class ParkViewModel {
+class RelatedPlaceViewModel {
     
-    private(set) weak var park: Park!
-    weak var delegate: ParkViewModelDelegate?
+    weak var park: Park!
+    weak var delegate: RelatedPlaceViewModelDelegate?
     
-    var parkName: String {
-        return park.parkName
-    }
     var name: String {
         return park.name
-    }
-    var introduction: String {
-        return park.introduction
     }
     
     init(park: Park) {

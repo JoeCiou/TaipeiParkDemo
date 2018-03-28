@@ -11,7 +11,7 @@ import UIKit
 class ParkCell: UITableViewCell, ParkViewModelDelegate {
     
     var viewModel: ParkViewModel? {
-        didSet{
+        didSet {
             if let viewModel = viewModel{
                 viewModel.delegate = self
                 viewModel.fetchPhoto()
@@ -60,6 +60,13 @@ class ParkListViewController: UIViewController, ParkListViewModelDelegate, UITab
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ParkDetailViewController,
+            let indexPath = sender as? IndexPath {
+            vc.viewModel = viewModel.parkDetailViewModel(indexPath: indexPath)
+        }
+    }
+    
     // MARK: - Park list view model delegate
     
     func didSuccessUpdateParks() {
@@ -73,7 +80,7 @@ class ParkListViewController: UIViewController, ParkListViewModelDelegate, UITab
     // MARK: - Table view delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: "DetailSegue", sender: indexPath)
     }
     
     // MARK: - Table view data source

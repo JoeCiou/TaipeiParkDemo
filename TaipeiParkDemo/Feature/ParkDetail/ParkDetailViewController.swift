@@ -8,12 +8,27 @@
 
 import UIKit
 
-class RelatedPlaceCell: UICollectionViewCell {
+class RelatedPlaceCell: UICollectionViewCell, RelatedPlaceViewModelDelegate {
+    
+    var viewModel: RelatedPlaceViewModel! {
+        didSet {
+            viewModel.delegate = self
+            viewModel.fetchPhoto()
+            nameLabel.text = viewModel.name
+        }
+    }
+    
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    
+    func didFetchPhoto(image: UIImage?) {
+        photoImageView.image = image
+    }
 }
 
-class ParkDetailViewController: UIViewController {
+class ParkDetailViewController: UIViewController, ParkViewModelDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    var viewModel: ParkDetailViewModel!
 
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var parkNameLabel: UILabel!
@@ -25,7 +40,12 @@ class ParkDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        viewModel.delegate = self
+        viewModel.fetchPhoto()
+        parkNameLabel.text = viewModel.parkName
+        nameLabel.text = viewModel.name
+        openTimeLabel.text = viewModel.openTime
+        introductionTextView.text = viewModel.introduction
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,5 +53,29 @@ class ParkDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Park view model delegate
+    
+    func didFetchPhoto(image: UIImage?) {
+        self.photoImageView.image = image
+    }
 
+    // MARK: - Collection view delegate
+    
+    // MARK: - Collection view data source
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.relatedPlacesNumber
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RelatedPlaceCell", for: indexPath) as! RelatedPlaceCell
+        cell.viewModel = viewModel.relatedPlaceViewModel(index: indexPath.item)
+        
+        return cell
+    }
+    
 }
