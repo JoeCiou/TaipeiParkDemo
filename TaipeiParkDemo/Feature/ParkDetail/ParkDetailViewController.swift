@@ -21,6 +21,8 @@ class RelatedPlaceCell: UICollectionViewCell, RelatedPlaceViewModelDelegate {
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    // MARK: - Related place view model delegate
+    
     func didFetchPhoto(image: UIImage?) {
         photoImageView.image = image
     }
@@ -28,7 +30,11 @@ class RelatedPlaceCell: UICollectionViewCell, RelatedPlaceViewModelDelegate {
 
 class ParkDetailViewController: UIViewController, ParkViewModelDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var viewModel: ParkDetailViewModel!
+    var viewModel: ParkDetailViewModel! {
+        didSet {
+            viewModel.delegate = self
+        }
+    }
 
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var parkNameLabel: UILabel!
@@ -40,20 +46,25 @@ class ParkDetailViewController: UIViewController, ParkViewModelDelegate, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewModel.delegate = self
-        viewModel.fetchPhoto()
-        parkNameLabel.text = viewModel.parkName
-        nameLabel.text = viewModel.name
-        openTimeLabel.text = viewModel.openTime
-        introductionTextView.text = viewModel.introduction
-        
         introductionTextView.textContainerInset = UIEdgeInsets.zero
         introductionTextView.textContainer.lineFragmentPadding = 0
+        
+        updateInfomation()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func updateInfomation() {
+        viewModel.fetchPhoto()
+        parkNameLabel.text = viewModel.parkName
+        nameLabel.text = viewModel.name
+        openTimeLabel.text = viewModel.openTime
+        introductionTextView.text = viewModel.introduction
+        relatedPlacesCollectionView.reloadData()
+        relatedPlacesCollectionView.setContentOffset(CGPoint.zero, animated: false)
     }
     
     @IBAction func handleBackClick(_ sender: Any) {
@@ -68,6 +79,11 @@ class ParkDetailViewController: UIViewController, ParkViewModelDelegate, UIColle
 
     // MARK: - Collection view delegate
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel = viewModel.parkDetailViewModel(relatedPlacesIndex: indexPath.item)
+        updateInfomation()
+    }
+    
     // MARK: - Collection view data source
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -75,6 +91,12 @@ class ParkDetailViewController: UIViewController, ParkViewModelDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if (viewModel.relatedPlacesNumber == 0) {
+            collectionView.setEmptyMessage("目前沒有相關景點")
+        } else {
+            collectionView.restore()
+        }
+        
         return viewModel.relatedPlacesNumber
     }
     
@@ -85,4 +107,22 @@ class ParkDetailViewController: UIViewController, ParkViewModelDelegate, UIColle
         return cell
     }
     
+}
+
+extension UICollectionView {
+    
+    func setEmptyMessage(_ message: String) {
+        let messageLabel = UILabel()
+        messageLabel.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleBottomMargin]
+        messageLabel.text = message
+        messageLabel.textColor = UIColor.darkGray
+        messageLabel.textAlignment = .center;
+        messageLabel.font = UIFont.systemFont(ofSize: 15)
+        
+        self.backgroundView = messageLabel;
+    }
+    
+    func restore() {
+        self.backgroundView = nil
+    }
 }

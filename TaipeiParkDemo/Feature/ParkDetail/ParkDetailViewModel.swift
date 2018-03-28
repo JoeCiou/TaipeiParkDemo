@@ -25,6 +25,12 @@ class ParkDetailViewModel: ParkViewModel {
         super.init(park: park)
     }
     
+    func parkDetailViewModel(relatedPlacesIndex: Int) -> ParkDetailViewModel {
+        let park = self.relatedPlaces[relatedPlacesIndex]
+        let relatedPlaces = self.relatedPlaces.filter({ $0 != park }) + [self.park]
+        return ParkDetailViewModel(park: park, relatedPlaces: relatedPlaces)
+    }
+    
     func relatedPlaceViewModel(index: Int) -> RelatedPlaceViewModel {
         return RelatedPlaceViewModel(park: relatedPlaces[index])
     }

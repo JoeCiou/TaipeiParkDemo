@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 class ParkCell: UITableViewCell, ParkViewModelDelegate {
     
@@ -22,6 +23,7 @@ class ParkCell: UITableViewCell, ParkViewModelDelegate {
         }
     }
     
+    @IBOutlet weak var cardContentView: UIView!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var parkNameLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -31,6 +33,15 @@ class ParkCell: UITableViewCell, ParkViewModelDelegate {
         super.awakeFromNib()
         introductionTextView.textContainerInset = UIEdgeInsets.zero
         introductionTextView.textContainer.lineFragmentPadding = 0
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        cardContentView.hero.id = selected ? "CardContentView": nil
+        photoImageView.hero.id = selected ? "PhotoImageView": nil
+        parkNameLabel.hero.id = selected ? "ParkNameLabel": nil
+        nameLabel.hero.id = selected ? "NameLabel": nil
+        introductionTextView.hero.id = selected ? "IntroductionTextView": nil
     }
     
     // MARK: - Park view model delegate
