@@ -88,7 +88,17 @@ class ParkListViewController: UIViewController, ParkListViewModelDelegate, UITab
     }
     
     func didFailUpdateParks(error: Error) {
-        // TODO: retry
+        let alert = UIAlertController(title: "取得資料失敗",
+                                      message: error.localizedDescription,
+                                      preferredStyle: .alert)
+        let retryAction = UIAlertAction(title: "重試", style: .default) { (_) in
+            self.viewModel.updateParks()
+        }
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel)
+        alert.addAction(retryAction)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
     }
 
     // MARK: - Table view delegate
