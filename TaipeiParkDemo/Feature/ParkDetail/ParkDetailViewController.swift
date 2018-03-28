@@ -46,11 +46,18 @@ class ParkDetailViewController: UIViewController, ParkViewModelDelegate, UIColle
         nameLabel.text = viewModel.name
         openTimeLabel.text = viewModel.openTime
         introductionTextView.text = viewModel.introduction
+        
+        introductionTextView.textContainerInset = UIEdgeInsets.zero
+        introductionTextView.textContainer.lineFragmentPadding = 0
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func handleBackClick(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Park view model delegate
