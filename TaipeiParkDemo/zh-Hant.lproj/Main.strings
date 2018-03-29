@@ -1,0 +1,27 @@
+
+/* Class = "UITextView"; text = "Introduction"; ObjectID = "CBr-IL-nzM"; */
+"CBr-IL-nzM.text" = "Introduction";
+
+/* Class = "UITextView"; text = "Introduction"; ObjectID = "DtW-Zz-WGW"; */
+"DtW-Zz-WGW.text" = "Introduction";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "PnA-FL-6Vv"; */
+"PnA-FL-6Vv.text" = "Name";
+
+/* Class = "UILabel"; text = "相關景點"; ObjectID = "bNs-6q-xgS"; */
+"bNs-6q-xgS.text" = "相關景點";
+
+/* Class = "UILabel"; text = "ParkName"; ObjectID = "bdK-EX-VqD"; */
+"bdK-EX-VqD.text" = "ParkName";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "fK7-LC-Exb"; */
+"fK7-LC-Exb.text" = "Name";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "kSn-9j-mG8"; */
+"kSn-9j-mG8.text" = "Name";
+
+/* Class = "UILabel"; text = "OpenTime"; ObjectID = "m9x-Ei-Gum"; */
+"m9x-Ei-Gum.text" = "OpenTime";
+
+/* Class = "UILabel"; text = "ParkName"; ObjectID = "r0W-tI-JnD"; */
+"r0W-tI-JnD.text" = "ParkName";
