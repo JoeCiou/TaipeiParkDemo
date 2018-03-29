@@ -13,7 +13,7 @@ class ParkDetailViewModel: ParkViewModel {
     private let relatedPlaces: [Park]
     
     var openTime: String {
-        return park!.openTime
+        return "開放時間：" + park!.openTime
     }
     
     var relatedPlacesNumber: Int {
